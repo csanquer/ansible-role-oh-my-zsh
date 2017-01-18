@@ -1,0 +1,18 @@
+---
+zsh_users:
+  -
+    user: "{{ ansible_ssh_user }}"
+    group: "{{ ansible_ssh_user }}"
+    zshrc_template: .zshrc.j2
+    env_vars:
+      PATH: '$HOME/bin:/usr/local/bin:$PATH'
+    backup: yes
+    force: yes
+    zsh_default_shell: true
+    theme: robbyrussell
+    # custom theme files to copy to ~/.oh-my-zsh/themes
+    custom_themes: []
+    plugins:
+      - git
+
+zsh_zshrc_default_template: .zshrc.j2

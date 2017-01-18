@@ -1,0 +1,17 @@
+---
+oh_my_zsh_git_url: https://github.com/robbyrussell/oh-my-zsh.git
+zsh_shells:
+  Debian: '/usr/bin/zsh'
+  RedHat: '/bin/zsh'
+
+zsh_debian_deps:
+  - zsh
+  - git-core
+  - curl
+  - wget
+
+zsh_redhat_deps:
+  - zsh
+  - git
+  - curl
+  - wget

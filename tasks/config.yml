@@ -1,0 +1,30 @@
+---
+- name: copy custom oh my zsh themes
+  copy:
+    src: "{{ item.1 }}"
+    dest: "/home/{{ item.0.user }}/.oh-my-zsh/themes/{{ item.1 | basename }}"
+    owner: "{{ item.0.user }}"
+    group: "{{ item.0.group|default(item.0.user) }}"
+    mode: 'u=rw,g=r,o=r'
+  with_subelements:
+    - "{{ zsh_users }}"
+    - custom_themes
+    - { skip_missing: true }
+
+- name: configure zshrc
+  template:
+    src: "{{ item.zshrc_template|default(zsh_zshrc_default_template) }}"
+    dest: "/home/{{ item.user }}/.zshrc"
+    owner: "{{ item.user }}"
+    group: "{{ item.group|default(item.user) }}"
+    mode: 'u=rw,g=r,o=r'
+    backup: "{{ item.backup|default('yes') }}"
+    force: "{{ item.force|default('yes') }}"
+  with_items: "{{ zsh_users }}"
+
+- name: change default shell to zsh
+  user:
+    name: "{{ item.user }}"
+    shell: "{{ zsh_shells[ansible_os_family]|default('/bin/zsh') }}"
+  when: item.zsh_default_shell | default(true) | bool
+  with_items: "{{ zsh_users }}"

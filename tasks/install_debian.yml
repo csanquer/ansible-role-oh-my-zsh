@@ -1,0 +1,6 @@
+---
+- name: install zsh dependencies on debian
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ zsh_debian_deps }}"

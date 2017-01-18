@@ -1,0 +1,10 @@
+---
+- include: install.yml
+  tags:
+    - oh-my-zsh
+    - zsh
+
+- include: config.yml
+  tags:
+    - oh-my-zsh
+    - zsh
