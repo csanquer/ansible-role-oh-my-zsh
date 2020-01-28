@@ -5,7 +5,8 @@ zsh_users: []
   #   group: "{{ ansible_user }}"
   #   zshrc_template: .zshrc.j2
   #   env_vars:
-  #     PATH: '$HOME/bin:/usr/local/bin:$PATH'
+  #     - name: PATH
+  #       value: '$HOME/bin:/usr/local/bin:$PATH'
   #   backup: yes
   #   force: yes
   #   zsh_default_shell: true
