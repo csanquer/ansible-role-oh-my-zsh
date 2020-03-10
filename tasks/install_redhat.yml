@@ -2,4 +2,4 @@
 - name: install zsh dependencies on redhat
   yum:
     name: "{{ zsh_redhat_deps }}"
-    state: "{{ zsh_deps_state }}"
+    state: "{{ zsh_deps_state | default('present') }}"
