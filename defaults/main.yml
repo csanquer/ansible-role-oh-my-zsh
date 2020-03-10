@@ -3,6 +3,7 @@ zsh_users: []
   # -
   #   user: "{{ ansible_user }}"
   #   group: "{{ ansible_user }}"
+  #   home: "/home/{{ ansible_user }}"
   #   zshrc_template: .zshrc.j2
   #   env_vars:
   #     - name: PATH
@@ -17,3 +18,5 @@ zsh_users: []
   #     - git
 
 zsh_zshrc_default_template: .zshrc.j2
+
+zsh_deps_state: present

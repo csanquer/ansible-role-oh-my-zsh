@@ -8,7 +8,10 @@
 - name: install oh my zsh
   git:
     repo: "{{ oh_my_zsh_git_url }}"
-    dest: "/home/{{ item.user }}/.oh-my-zsh"
+    dest: "{{ item.home | default('/home/' ~ item.user ) }}/.oh-my-zsh"
+    version: master
     depth: 1
+  become: true
+  become_method: sudo
   become_user: "{{ item.user }}"
   with_items: "{{ zsh_users }}"

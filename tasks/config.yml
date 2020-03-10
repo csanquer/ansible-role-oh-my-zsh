@@ -2,9 +2,9 @@
 - name: copy custom oh my zsh themes
   copy:
     src: "{{ item.1 }}"
-    dest: "/home/{{ item.0.user }}/.oh-my-zsh/themes/{{ item.1 | basename }}"
+    dest: "{{ item.0.home | default('/home/' ~ item.0.user ) }}/.oh-my-zsh/themes/{{ item.1 | basename }}"
     owner: "{{ item.0.user }}"
-    group: "{{ item.0.group|default(item.0.user) }}"
+    group: "{{ item.0.group | default(item.0.user) }}"
     mode: 'u=rw,g=r,o=r'
   with_subelements:
     - "{{ zsh_users }}"
@@ -14,7 +14,7 @@
 - name: configure zshrc
   template:
     src: "{{ item.zshrc_template|default(zsh_zshrc_default_template) }}"
-    dest: "/home/{{ item.user }}/.zshrc"
+    dest: "{{ item.home | default('/home/' ~ item.user ) }}/.zshrc"
     owner: "{{ item.user }}"
     group: "{{ item.group|default(item.user) }}"
     mode: 'u=rw,g=r,o=r'
