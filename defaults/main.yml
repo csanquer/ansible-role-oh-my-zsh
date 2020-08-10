@@ -8,6 +8,8 @@ zsh_users: []
   #   env_vars:
   #     - name: PATH
   #       value: '$HOME/bin:/usr/local/bin:$PATH'
+  #   # .zshrc extra lines
+  #   extra_lines: []
   #   backup: yes
   #   force: yes
   #   zsh_default_shell: true
@@ -16,6 +18,11 @@ zsh_users: []
   #   custom_themes: []
   #   plugins:
   #     - git
+  #   disable_auto_update: false
+  #   disable_update_prompt: false
+  #   hyphen_sensitive: false
+  #   case_sensitive: false
+
 
 zsh_zshrc_default_template: .zshrc.j2
 
