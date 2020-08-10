@@ -20,8 +20,8 @@ zsh_users: []
   #     - git
   #   disable_auto_update: false
   #   disable_update_prompt: false
-  #   hyphen_sensitive: false
-  #   case_sensitive: false
+  #   hyphen_insensitive: false
+  #   case_insensitive: false
 
 
 zsh_zshrc_default_template: .zshrc.j2
