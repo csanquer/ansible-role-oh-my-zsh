@@ -107,9 +107,9 @@ export {{ item.name | upper }}="{{ item.value }}"
 
 # custom config
 {% for line in account_zsh_extra_lines[(item.0.name|default(""))]|default([]) %}
-{{ item }}
+{{ line }}
 {% endfor %}
 
 {% for line in item.extra_lines|default([]) %}
-{{ item }}
+{{ line }}
 {% endfor %}
